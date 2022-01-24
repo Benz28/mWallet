@@ -1,0 +1,216 @@
+﻿@using mWallet.Models
+
+@model ModifyExpensesModel
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<!-- #region css-->
+<style>
+    .ui-datepicker {
+        display: none;
+        width: auto;
+        padding: 15px;
+        cursor: default;
+        text-transform: uppercase;
+        background-color: #666666;
+        border-radius: 1px;
+        border: solid 1px lightgrey;
+    }
+
+    .ui-datepicker-header {
+        position: relative;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d6d6d6;
+    }
+
+    .ui-datepicker-title {
+        text-align: center;
+    }
+
+    .ui-datepicker-month {
+        position: relative;
+        padding-right: 15px;
+        color: #000000;
+    }
+
+    .ui-datepicker-year {
+        padding-left: 8px;
+        color: #000000;
+    }
+
+    .ui-datepicker-month:before {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 0;
+        width: 5px;
+        height: 5px;
+        content: '';
+        background: #a5cd4e;
+        background: -moz-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a5cd4e), color-stop(100%, #6b8f1a));
+        background: -webkit-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+        background: -o-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+        background: -ms-linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+        background: linear-gradient(top, #a5cd4e 0%, #6b8f1a 100%);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+        position: absolute;
+        top: -2px;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .ui-datepicker-prev {
+        left: 0;
+        padding-left: 0;
+        width: 10%;
+    }
+
+    .ui-datepicker-next {
+        right: 0;
+        padding-right: 0;
+        width: 10%;
+    }
+
+        .ui-datepicker-prev span,
+        .ui-datepicker-next span {
+            display: block;
+            width: 5px;
+            height: 10px;
+            text-indent: -9999px;
+            background-image: url(../img/arrows.png);
+        }
+
+    .ui-datepicker-prev span {
+        background-position: 0px 0px;
+    }
+
+    .ui-datepicker-next span {
+        background-position: -5px 0px;
+    }
+
+    .ui-datepicker-prev-hover span {
+        background-position: 0px -10px;
+    }
+
+    .ui-datepicker-next-hover span {
+        background-position: -5px -10px;
+    }
+
+    .ui-datepicker-calendar th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #404040;
+        text-align: center;
+    }
+
+    .ui-datepicker-calendar td {
+        padding: 0 7px;
+        text-align: center;
+    }
+
+    .ui-datepicker-calendar .ui-state-default {
+        display: block;
+        width: 26px;
+        outline: none;
+        text-decoration: none;
+        color: #ffffff;
+        border: 1px solid transparent;
+    }
+
+    .ui-datepicker-calendar .ui-state-active {
+        color: #e91e62;
+        border: 1px solid #e91e62;
+    }
+
+    .ui-datepicker-other-month .ui-state-default {
+        color: #ccc;
+    }
+
+    .ui-datepicker table {
+        margin: 0 auto;
+    }
+
+    h2 {
+        margin-top: 15px;
+    }
+</style>
+<!-- #endregion -->
+
+@using (Html.BeginForm(Html.BeginForm("Add", "Expenses", FormMethod.Post)))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Expenses</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.date, new { htmlAttributes = new { @class = "form-control", placeholder = "Expenses Date", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.desc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.desc, new { htmlAttributes = new { @class = "form-control", placeholder = "Expenses Details" } })
+                @Html.ValidationMessageFor(model => model.desc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control", placeholder = "Expenses Amount" } })
+                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.type, new SelectList(Enum.GetValues(typeof(PaymentType))), "Select Payment Type", new { @class = "form-control", style = "width: 100%" })
+                @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(date).datepicker({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0",
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            });
+
+        });
+    </script>
+
+}

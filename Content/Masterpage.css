@@ -1,0 +1,81 @@
+﻿body {
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-bottom: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar {
+    background: rgba(245,245,245,1);
+}
+
+footer {
+    background: rgba(245,245,245,1);
+    padding-left:15px;
+    padding-right:15px;
+    bottom:0;
+    position:fixed;
+    width:100%;
+}
+
+.footer-button a {
+    text-decoration:none;
+    color:black;
+}
+
+#coverpic {
+    width:100%;
+    top:0;   
+}
+
+.location-pic1 img{
+    margin-right : 24px;
+    margin-bottom : 24px;
+}
+
+.location-pic2 img {
+    margin-right: 24px;
+    margin-bottom: 50px;
+}
+
+.location-navigation {
+    width:100%;
+    text-align:center;
+}
+
+.location-navigation span {
+    border: none;
+    margin-bottom:50px;
+    
+}
+
+.location-navigation span:hover a {
+        color: white;
+        text-decoration: none;
+}
+
+.location-navigation a {
+        text-decoration: none;
+        color: black;
+}
+
+.nearby-Restaurant a img {
+    width: 350px;
+    height: 350px;
+}
+
+.free-delivery a img {
+    width: 350px; 
+    height: 350px;
+}

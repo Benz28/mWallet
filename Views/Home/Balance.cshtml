@@ -1,0 +1,19 @@
+﻿@model mWallet.Models.WalletModel
+
+@{
+    ViewBag.Title = "Balance";
+}
+
+<h2>Balance</h2>
+
+<table id="darkTable">
+    <tr>
+        <th>Current Balance</th>
+        <th>Bank Balance</th>
+    </tr>
+    <tr>
+        <td>@Model.current_balance</td>
+        <td>@Model.bank_balance</td>
+    </tr>
+</table>
+

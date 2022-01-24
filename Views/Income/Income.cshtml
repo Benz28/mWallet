@@ -1,0 +1,71 @@
+﻿@model IEnumerable<mWallet.Models.IncomeModel>
+
+@{
+    ViewBag.Title = "Income";
+    var success = TempData["success"];
+}
+
+<style>
+    h2 {
+        margin: 15px 0 10px 10%;
+    }
+
+    .spacing {
+        margin: 0 0 5px 10%;
+    }
+</style>
+
+<h2>Income</h2>
+
+<a href="@Url.Action("Add", "Income")" class="btn btn-primary spacing">
+    Add Income
+</a>
+
+<table id="darkTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@if (success != null)
+{
+    <h3 class="text-success">
+        @success
+    </h3>
+}
+
