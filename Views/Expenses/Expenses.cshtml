@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Expenses";
     var success = TempData["success"];
+    var fail = TempData["fail"];
 }
 
 <style>
@@ -48,17 +49,50 @@
                 @Html.DisplayFor(modelItem => item.amount)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { desc = item.desc, amt = item.amount }) |
+                <a href="@Url.Action("DeleteExpenses", "Expenses", new { desc = item.desc, amt = item.amount })">Delete</a>
             </td>
         </tr>
     }
 
 </table>
 
+
+<input type="hidden" id="desc" />
+<input type="hidden" id="amt" />
+
+<script>
+
+    var Confirm = function (_desc, _amt) {
+        console.log("Enter");
+        $.ajax({
+            type: "POST",
+            url: "/Expenses/DeleteExpenses",
+            data: { desc: _desc, amt: _amt },
+            success: function (result) {
+                if (result) {
+                    window.location.href = "/Expenses";
+                } else {
+                    alert("Something when wrong while removing staff, please try again!")
+                }
+            }
+        });
+        console.log("Exit");
+    };
+
+</script>
+
+
 @if (success != null)
 {
     <h3 class="text-success">
         @success
+    </h3>
+}
+
+@if (fail != null)
+{
+    <h3 class="text-warning">
+        @fail
     </h3>
 }
