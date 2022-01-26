@@ -20,5 +20,10 @@ namespace mWallet.Service.Business
         {
             return dao.InsertExpenses(data);
         }
+
+        public bool PostRemoveExpenses(string desc, decimal amt)
+        {
+            return dao.RemoveExpenses(desc, amt);
+        }
     }
 }
