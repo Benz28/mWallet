@@ -28,5 +28,10 @@ namespace mWallet.Controllers
             return RedirectToAction("Income");
         }
 
+        public ActionResult DeleteIncome(string desc = "", decimal amt = 0)
+        {
+            service.PostRemoveIncome(desc, amt);
+            return RedirectToAction("Income");
+        }
     }
 }

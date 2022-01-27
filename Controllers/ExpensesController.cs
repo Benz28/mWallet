@@ -35,16 +35,9 @@ namespace mWallet.Controllers
             return RedirectToAction("Expenses");
         }
 
-        [HttpGet]
-        public JsonResult test()
-        {
-            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
-        }
-
         public ActionResult DeleteExpenses(string desc = "", decimal amt = 0)
         {
             service.PostRemoveExpenses(desc, amt);
-            //return Json(service.PostRemoveExpenses(desc, amt), JsonRequestBehavior.AllowGet);
             return RedirectToAction("Expenses");
         }
 
