@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Income";
     var success = TempData["success"];
+    var fail = TempData["fail"];
 }
 
 <style>
@@ -10,10 +11,14 @@
         margin: 15px 0 10px 10%;
     }
 
+    h4 {
+        margin-left: 10%;
+    }
+
     .spacing {
         margin: 0 0 5px 10%;
     }
-    
+
     select {
         color: white;
         height: 34px;
@@ -45,6 +50,20 @@
         }
     }
 </select>
+
+@if (success != null)
+{
+    <h4 class="text-success">
+        @success
+    </h4>
+}
+
+@if (fail != null)
+{
+    <h4 class="text-warning">
+        @fail
+    </h4>
+}
 
 <table id="darkTable">
     <tr>
@@ -85,13 +104,6 @@
     }
 
 </table>
-
-@if (success != null)
-{
-    <h3 class="text-success">
-        @success
-    </h3>
-}
 
 <script>
     $(document).ready(function () {

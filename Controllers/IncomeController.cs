@@ -26,8 +26,14 @@ namespace mWallet.Controllers
         [HttpPost]
         public ActionResult Add(ModifyIncomeModel data)
         {
-            service.AddIncome(data);
-            TempData["success"] = "Successfully added into income";
+            if (service.AddIncome(data))
+            {
+                TempData["success"] = "Successfully added into income";
+            }
+            else
+            {
+                TempData["fail"] = "Fail to insert into income";
+            }
             return RedirectToAction("Income");
         }
 
