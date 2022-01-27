@@ -49,7 +49,6 @@
                 @Html.DisplayFor(modelItem => item.amount)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { desc = item.desc, amt = item.amount }) |
                 <a href="@Url.Action("DeleteExpenses", "Expenses", new { desc = item.desc, amt = item.amount })">Delete</a>
             </td>
         </tr>
