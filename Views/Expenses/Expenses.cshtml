@@ -99,31 +99,6 @@
 
 </table>
 
-
-<input type="hidden" id="desc" />
-<input type="hidden" id="amt" />
-
-<script>
-
-    var Confirm = function (_desc, _amt) {
-        console.log("Enter");
-        $.ajax({
-            type: "POST",
-            url: "/Expenses/DeleteExpenses",
-            data: { desc: _desc, amt: _amt },
-            success: function (result) {
-                if (result) {
-                    window.location.href = "/Expenses";
-                } else {
-                    alert("Something when wrong while removing staff, please try again!")
-                }
-            }
-        });
-        console.log("Exit");
-    };
-
-</script>
-
 <script>
     $(document).ready(function () {
         $("#month").change(function () {
