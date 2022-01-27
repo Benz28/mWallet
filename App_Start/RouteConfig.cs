@@ -26,6 +26,12 @@ namespace mWallet
                         );
 
             routes.MapRoute(
+                            name: "Report",
+                            url: "Report/{action}/{id}",
+                            defaults: new { controller = "Report", action = "Report", id = UrlParameter.Optional }
+                        );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Balance", id = UrlParameter.Optional }
