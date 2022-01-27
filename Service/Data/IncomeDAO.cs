@@ -18,17 +18,20 @@ namespace mWallet.Service.Data
         {
             List<IncomeModel> data = new List<IncomeModel>();
 
-            string queryString = "SELECT DAY(Date), UPPER(Description), Amount, Type FROM Income WHERE MONTH(Date) = @month ORDER BY Date";
+            string queryString = "SELECT DAY(Date), UPPER(Description), Amount, Type FROM Income WHERE MONTH(Date) = @month AND YEAR(Date) = @year ORDER BY Date";
 
             if (month == null)
             {
                 month = DateTime.Now.Month;
             }
 
+            int year = DateTime.Now.Year;
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.Add("@month", System.Data.SqlDbType.Int).Value = month;
+                command.Parameters.Add("@year", System.Data.SqlDbType.Int).Value = year;
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
