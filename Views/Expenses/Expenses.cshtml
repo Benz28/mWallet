@@ -4,6 +4,12 @@
     ViewBag.Title = "Expenses";
     var success = TempData["success"];
     var fail = TempData["fail"];
+    decimal total = 0;
+
+    foreach(var item in Model)
+    {
+        total += item.amount;
+    }
 }
 
 <style>
@@ -50,6 +56,8 @@
         }
     }
 </select>
+
+<div style="font-weight: bold; font-size: medium; text-align: right; margin: 0 10% 5px 0;">Total Expenses: @total</div>
 
 @if (success != null)
 {

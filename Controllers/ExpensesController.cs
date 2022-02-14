@@ -17,6 +17,8 @@ namespace mWallet.Controllers
         {
             ViewBag.ddlMonth = Months; // get month for dropdownlist
             ViewBag.curMonth = month == null ? DateTime.Now.Month.ToString() : month.ToString();  // get current month or selected month
+
+            ExpensesModel test = service.GetMonthlyExpenses(month).Find(x => x.desc == "TEST");
             return View(service.GetMonthlyExpenses(month));
         }
 
