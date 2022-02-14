@@ -18,7 +18,8 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44356</IISExpressSSLPort>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -132,7 +133,7 @@
     <Compile Include="Models\ModifyExpensesModel.cs" />
     <Compile Include="Models\ExpensesModel.cs" />
     <Compile Include="Models\SummaryReport.cs" />
-    <Compile Include="Models\SummaryReportModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\WalletModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Business\BalanceService.cs" />
@@ -264,6 +265,7 @@
     <Content Include="Views\Income\Add.cshtml" />
     <Content Include="Views\Report\SummaryReport.cshtml" />
     <Content Include="Views\Report\Report.cshtml" />
+    <Content Include="Views\Report\AnnualReport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -295,7 +297,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49934</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44356/</IISUrl>
+          <IISUrl>http://localhost:44356/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -7,7 +7,7 @@ namespace mWallet.Models
 {
     public class SummaryReport
     {
-        public IEnumerable<SummaryReportModel> summary_by_year { get; set; }
-        public IEnumerable<SummaryReportModel> summary_by_month { get; set; }
+        public IEnumerable<ReportModel> summary_by_year { get; set; }
+        public IEnumerable<ReportModel> summary_by_month { get; set; }
     }
 }

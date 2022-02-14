@@ -11,14 +11,33 @@ namespace mWallet.Service.Business
     {
         ReportDAO dao = new ReportDAO();
 
-        public List<SummaryReportModel> GetSummaryByMonth()
+        #region Summary Report
+        public List<ReportModel> GetSummaryByMonth()
         {
             return dao.SummaryByMonth();
         }
 
-        public List<SummaryReportModel> GetSummaryByYear()
+        public List<ReportModel> GetSummaryByYear()
         {
             return dao.SummaryByYear();
         }
+        #endregion
+
+        #region Annual Report
+        public List<ReportModel> GetExpensesByYear(int? year)
+        {
+            return dao.ExpensesByYear(year);
+        }
+        
+        public List<ReportModel> GetIncomeByYear(int? year)
+        {
+            return dao.IncomeByYear(year);
+        }
+
+        public List<string> GetTotalYear()
+        {
+            return dao.TotalYear();
+        }
+        #endregion
     }
 }

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace mWallet.Models
 {
-    public class SummaryReportModel
+    public class ReportModel
     {
         [Display(Name = "Year")]
         public int year { get; set; }
