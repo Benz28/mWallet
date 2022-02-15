@@ -76,16 +76,24 @@
 1. Click Clone a repository
 
 ![clone_project_img1](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img1.png)
+
 2. Paste the github url: https://github.com/Benz28/mWallet.git
 3. Set your file path
-![clone_project_img2]()
+
+![clone_project_img2](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img2.png)
+
 4. Click clone
 5. Double click on mWallet.sln to launch the project
-![clone_project_img3]()
+
+![clone_project_img3](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img3.png)
+
 6. Go to View -> Other Windows -> Package Manager Control
-![clone_project_img4]()
+
+![clone_project_img4](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img4.png)
+
 7. Update the project package: Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r
-![clone_project_img5]()
+
+![clone_project_img5](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img5.png)
 
 You have done setup everything, you can debug or run without debug (ctrl + f5) to run the program.
 
@@ -95,9 +103,12 @@ Below are the additional settings if you want to host it to IIS and access direc
 10. Select a path to save the publish info (You can create a file to store it in anywhere) 
 11. Click Finish
 12. Click on the pensil icon (any)
-![clone_project_img6]()
+
+![clone_project_img6](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img6.png)
 13. Expend File Publish Options and check Delete all existing files prior to publish
-![clone_project_img7]()
+
+![clone_project_img7](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img7.png)
+
 14. Click on Save and Publish the application
 
 
