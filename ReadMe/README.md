@@ -74,7 +74,7 @@
 # Clone Project
 
 1. Click Clone a repository
-![clone_project_img1]()
+![clone_project_img1](https://github.com/Benz28/mWallet/blob/master/ReadMe/Image/clone_project_img1.png)
 2. Paste the github url: https://github.com/Benz28/mWallet.git
 3. Set your file path
 ![clone_project_img2]()
